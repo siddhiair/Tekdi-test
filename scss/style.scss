@@ -88,7 +88,9 @@ p{
 .text-darkblue{
   color: $navyblue;
 }
-
+.slick-track{
+  margin-left: 0;
+}
 .ongoing-course-wrapper{
   @media only screen and (min-width:1200px){
     max-width: 90%;
@@ -126,9 +128,29 @@ p{
       position: absolute;
       top: 15px;
       left: 15px;
-      letter-spacing: .5px;
+      right: 15px;
       z-index: 10;
+      span{
+        letter-spacing: .5px;
+      }
+      p{
+        color: #fff;
+      }
     }
+    .stretched-link::after{
+      z-index: 40;
+    }
+    &.enroll-course{
+      .ct-cat{
+        bottom: 40px;
+      }
+    }
+  }
+  .enroll-link-wrapper{
+    max-width: 85%;
+    margin: -40px auto 0;
+    position: relative;
+    z-index: 50;
   }
   .chapter-name{
     color: $primaryColor;
@@ -173,7 +195,7 @@ p{
         background: rgba($red,.7);
       }
     }
-    .c-tag{
+    .c-tag .badge{
       color: $red;
     }
   }
@@ -183,7 +205,7 @@ p{
         background: rgba($brown,.7);
       }
     }
-    .c-tag{
+    .c-tag .badge{
       color: $brown;
     }
   }
@@ -193,7 +215,7 @@ p{
         background: rgba($purple,.7);
       }
     }
-    .c-tag{
+    .c-tag .badge{
       color: $purple;
     }
   }
@@ -203,7 +225,7 @@ p{
         background: rgba($green,.7);
       }
     }
-    .c-tag{
+    .c-tag .badge{
       color: $green;
     }
   }
