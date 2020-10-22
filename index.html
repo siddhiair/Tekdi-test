@@ -19,7 +19,7 @@
             </div>
           </div>
           <!--site logo ends-->
-          <div class="col-6 col-md-2 col-lg-2 col-xl-auto user-menu order-md-4 pl-xl-0">
+          <div class="col-6 col-md-2 col-lg-2 col-xl-auto user-menu order-md-4 pl-xl-0 ml-auto text-right">
             <button class="d-inline-flex align-items-center bg-transparent border-0">
               <img src="https://images.pexels.com/photos/1937434/pexels-photo-1937434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-circle" alt="" width="40">
               <span class="d-none d-xl-inline-block">John Doe</span>
@@ -29,10 +29,10 @@
           <!--user menu ends-->
           <div class="col-4 col-md-4 col-lg-6 order-md-2 justify-content-lg-end d-flex align-items-center">
             <div class="search-and-filter d-flex align-items-center">
-              <div class="search">
+              <div class="search d-flex align-items-center">
                 <button class="bg-transparent border-0 search-btn p-2"><i class="lni lni-search-alt"></i></button>
                 <div>
-                  <input type="search" name="search_text" class="search-bar d-none md-block">
+                  <input type="search" name="search_text" class="search-bar form-control bg-transparent border-0" placeholder="Type here to search">
                 </div>
               </div>
               <!--Search div ends-->
@@ -68,11 +68,11 @@
           <div class="col-12 col-lg-4 col-xl-3 order-lg-2 main-right">
             <div class="row">
               <div class="col-12 mb-4 mb-lg-0">
-                <div class="accordion-wrapper border-bottom py-4">
+                <div class="sidebar-wrapper border-bottom py-4">
                   <div class="d-flex align-items-center">
-                    <h2 class="acc-title d-lg-none mb-3"><strong class="font-bold text-darkblue font-2">Overview</strong></h2>
+                    <h2 class="sidebar-title d-lg-none mb-3"><strong class="font-bold text-darkblue font-2">Overview</strong></h2>
                   </div>
-                  <div class="acc-collapse">
+                  <div class="sidebar-collapse">
                     <div class="badges"><img src="images/badge.jpg" alt=""></div>
                     <p class="py-3 border-bottom">You have earned <strong class="pts-earned text-navyblue">120.8 Points</strong> in the last 6 months</p>
                     <p class="py-3 border-bottom">
@@ -91,9 +91,9 @@
                 <!--overview ends-->
               </div>
               <div class="col-12 col-md-6 col-lg-12 mb-4 mb-lg-0">
-                <div class="accordion-wrapper border-bottom py-4">
+                <div class="sidebar-wrapper border-bottom py-4">
                   <div class="d-flex align-items-center justify-content-between">
-                    <h2 class="acc-title">
+                    <h2 class="sidebar-title">
                       <strong class="font-bold text-darkblue font-2">Hrs utilised</strong> in last 
                       <span class="d-inline-block border-bottom">
                         <select name="hrs-utilization-time" id="" class="border-0 bg-transparent">
@@ -105,7 +105,7 @@
                     </h2>
                     <a href="#" class="view-link font-med">View</a>
                   </div>
-                  <div class="acc-collapse">
+                  <div class="sidebar-collapse">
                     <div class="utilization-chart">
                       <img src="images/hr-utilization-chart.jpg" alt="" class="d-block mw-100 mx-auto mt-4">
                     </div>
@@ -114,9 +114,9 @@
                 <!--Hr utilization chart ends-->
               </div>
               <div class="col-12 col-md-6 col-lg-12 mb-4 mb-lg-0">
-                <div class="accordion-wrapper border-bottom py-4">
+                <div class="sidebar-wrapper border-bottom py-4">
                   <div class="d-flex align-items-center justify-content-between">
-                    <h2 class="acc-title">
+                    <h2 class="sidebar-title">
                       <strong class="font-bold font-2 text-darkblue">Performance</strong> in last 
                       <span class="d-inline-block border-bottom">
                         <select name="hrs-utilization-time" id="" class="border-0 bg-transparent">
@@ -128,7 +128,7 @@
                     </h2>
                     <a href="#" class="view-link font-med">View</a>
                   </div>
-                  <div class="acc-collapse">
+                  <div class="sidebar-collapse">
                     <div class="performance-chart">
                       <img src="images/performance-chart.jpg" alt="" class="d-block mw-100 mx-auto mt-4">
                     </div>
@@ -153,9 +153,9 @@
                 <!--Performance chart ends-->
               </div>
               <div class="col-12 col-md-6 col-lg-12 mb-4 mb-lg-0">
-                <div class="accordion-wrapper border-bottom py-4">
+                <div class="sidebar-wrapper border-bottom py-4">
                   <div class="d-flex align-items-center justify-content-between">
-                    <h2 class="acc-title">
+                    <h2 class="sidebar-title">
                       <strong class="font-bold text-darkblue font-2">Agenda</strong> in last 
                       <span class="d-inline-block border-bottom">
                         <select name="hrs-utilization-time" id="" class="border-0 bg-transparent">
@@ -167,7 +167,7 @@
                     </h2>
                     <a href="#" class="view-link font-med">View</a>
                   </div>
-                  <div class="acc-collapse">
+                  <div class="sidebar-collapse">
                     <div class="table-responsive agenda-table">
                       <table class="table table-sm table-borderless mb-0 mt-3">
                         <tr>
@@ -205,11 +205,11 @@
                 <!--agenda ends-->
               </div>
               <div class="col-12 col-md-6 col-lg-12 mb-4 mb-lg-0">
-                <div class="accordion-wrapper border-bottom py-4">
+                <div class="sidebar-wrapper border-bottom py-4">
                   <div class="d-flex align-items-center">
-                    <h2 class="acc-title"><strong class="font-bold text-darkblue font-2">Resources</strong> for you</h2>
+                    <h2 class="sidebar-title"><strong class="font-bold text-darkblue font-2">Resources</strong> for you</h2>
                   </div>
-                  <div class="acc-collapse">
+                  <div class="sidebar-collapse">
                     <div class="resource-div my-3 d-flex">
                       <p class="d-inline-flex">
                         <i class="lni lni-empty-file mt-2 mr-2"></i>

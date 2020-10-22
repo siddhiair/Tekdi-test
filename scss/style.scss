@@ -1,6 +1,6 @@
 @import "variables";
 @import 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css';
-@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap';
 @import 'https://cdn.lineicons.com/2.0/LineIcons.css';
 @import 'slick';
 @import 'slick-theme';
@@ -20,7 +20,7 @@ body {
 	font-family: $baseFont;
 	background: $lightgray;
 	max-width:100%;
-	font-weight:300;
+	font-weight:400;
   line-height: 1.5;
   letter-spacing: .3px;
   color: $textcolor;
@@ -48,9 +48,32 @@ a,button{
 		margin:0;
 	}
 }
+/**Slick scollbar css**/
+.slick-scroll{
+  &::-webkit-scrollbar-track
+  {
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar
+  {
+      width: 6px;
+      height: 6px;
+      background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb
+  {
+      background-color: #ccc;
+  }
+}
+
 .btn-primary{
   background-color: $primaryColor;
   border:none;
+}
+.text-primary{
+  color: $primaryColor;
 }
 p{
   margin: 0;
@@ -82,22 +105,46 @@ p{
 .font-1{
   font-size: 1.15rem;
 }
+.bg-lightgray{
+  background: $lightgray;
+}
 .bg-lightblue{
   background: $lightblue;
 }
 .text-darkblue{
   color: $navyblue;
 }
+.badge{
+  font-weight: 400;
+}
 .slick-track{
   margin-left: 0;
+}
+.list-type-none{
+  list-style-type: none;
 }
 .ongoing-course-wrapper{
   @media only screen and (min-width:1200px){
     max-width: 90%;
   }
 }
+.stat-noti{
+  position: relative;
+  .lni{
+    color: $primaryColor;
+    position: relative;
+    &:after{
+      position: absolute;
+      content: '\002e';
+      font-size: 2rem;
+      color: red;
+      right: -8px;
+      top: -115%;
+    }
+  }
+}
 .course-summary-wrapper{
-  @extend .bg-lightblue;
+  @extend .bg-lightgray;
   .course-brief{
     position: relative;
     &:after{
@@ -165,21 +212,6 @@ p{
     p{
       span{
         color: $primaryColor;
-      }
-      &.stat-noti{
-        position: relative;
-        .lni{
-          color: $primaryColor;
-          position: relative;
-          &:after{
-            position: absolute;
-            content: '\002e';
-            font-size: 2rem;
-            color: red;
-            right: -8px;
-            top: -115%;
-          }
-        }
       }
     }
     @media only screen and (min-width: 1200px){
@@ -259,41 +291,167 @@ p{
     }
   }
 }
-.main-right{
-  .accordion-wrapper{
-    @media only screen and (max-width: 991px){
-      background: #fff;
-      border-radius: 5px;
-      padding: 12px;
-      border-bottom: none;
-      height: 100%;
-      .border-bottom{
-        border-color: rgba(#bdbdbd,.1) !important;
-      }
+.sidebar-wrapper{
+  @media only screen and (max-width: 991px){
+    background: #fff;
+    border-radius: 5px;
+    padding: 12px;
+    border-bottom: none;
+    height: 100%;
+    .border-bottom{
+      border-color: rgba(#bdbdbd,.1) !important;
     }
-    .acc-title,select{
-      color: $textcolor;
-      font-weight: 300;
-      font-size: 1rem;
+  }
+  .sidebar-title,select{
+    color: $textcolor;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+  .view-link{
+    display: inline-block;
+    padding: 5px 0;
+    color: $navyblue;
+    font-size: .9rem;
+  }
+  .resource-div{
+    .lni{
+      font-size: 1.4rem;
     }
-    .view-link{
-      display: inline-block;
-      padding: 5px 0;
+  }
+  .table{
+    color: $textcolor;
+    strong{
       color: $navyblue;
-      font-size: .9rem;
     }
-    .resource-div{
-      .lni{
-        font-size: 1.4rem;
+    td{
+      width: 45%;
+    }
+  }
+}
+.course-rating{
+  .cr-star{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    line-height: 70px;
+    position: relative;
+    text-align: center;
+    .lni{
+      position: relative;
+      z-index: 10;
+    }
+    @include linearGradient($primaryColor,$green);
+    z-index: 5;
+    &:after{
+      position: absolute;
+      content: '';
+      left: 4px;
+      top: 4px;
+      right: 4px;
+      bottom: 4px;
+      border-radius: 50%;
+      z-index: 1;
+      background: #fff;
+    }
+    @media only screen and (min-width: 992px){
+      width: 100px;
+      height: 100px;
+      line-height: 110px;
+    }
+  }
+  .rating-count{
+    font-size: 2rem;
+  }
+}
+.cd-wrapper{
+  background: $lightgray;
+  display: none;
+}
+.cd-tabs{
+  overflow-x: auto;
+  a{
+    color: $textcolor;
+    position:relative;
+    .lni{
+      color: $textcolor;
+    }
+    &:before{
+      position: absolute;
+      content:'';
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: $primaryColor;
+      margin: auto;
+      width:0;
+      @include transit(.3s);
+    }
+    &:hover,&:focus,&.active{
+      color: $navyblue;
+    }
+    &.active{
+      &:before{
+        width: 100%;
       }
     }
-    .table{
-      color: $textcolor;
-      strong{
+  }
+}
+.accordion-wrapper{
+  .acc-title{
+    border-bottom: 1px solid rgba(#000,.1);
+    @extend .bg-lightblue;
+    padding: 1rem;
+    @include transit(.3s);
+    span,.lni{
+      width: 30px;
+      font-size: 1.3rem;
+      @include transit(.3s);
+    }
+    &.active{
+      background: #fff;
+      border-color: transparent;
+      span{
         color: $navyblue;
       }
-      td{
-        width: 45%;
+      .lni{
+        &:before{
+          content: "\ea60";
+        }
+      }
+    }
+  }
+  .acc-body{
+    display: none;
+    background: #fff;
+  }
+  .acc-inner{
+    max-width: calc(100% - 85px);
+    margin: auto;
+  }
+  @media only screen and (min-width:768px){
+    .acc-title{
+      span,.lni{
+        width: 60px;
+        font-size: 1.5rem;
+      }
+    }
+    .acc-inner{
+      max-width: calc(100% - 145px);
+    }
+  }
+}
+.course-resource{
+  &:hover,&:active,&:focus{
+    background: $lightblue;
+  }
+  @media only screen and (min-width:1200px){
+    a{
+      opacity: 0;
+    }
+    &:hover,&:active,&:focus{
+      a{
+        opacity: 1;
       }
     }
   }
