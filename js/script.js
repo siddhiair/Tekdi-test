@@ -1,4 +1,10 @@
 jQuery(document).ready(function($){
+
+	if(window.matchMedia("(max-width:575px)").matches){
+		$(".search-btn").click(function(){
+			$(".search-bar").fadeToggle();
+		});
+	}
 	$(".acc-title").click(function(){
 		$(".acc-title").not(this).removeClass("active");
 		$(".acc-body").not($(this).next()).slideUp();
@@ -13,6 +19,14 @@ jQuery(document).ready(function($){
 		var div = $(this).data("target");
 		$("#"+div).fadeIn();
 	});
+
+	$(".add-comment-btn").click(function(){
+		$(".disc-wrapper").not($(this).parents()).removeClass("in");
+		$(".comments-wrapper").not($(this).parents(".disc-footer").next()).hide();
+		$(this).parents(".disc-wrapper").toggleClass("in");
+		$(this).parents(".disc-footer").next().slideToggle();
+	});
+
 	$(".slider-show-2").slick({
 		dots: false,
 		arrows:true,
