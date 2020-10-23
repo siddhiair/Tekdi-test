@@ -134,6 +134,7 @@ p{
 .search-and-filter{
   .form-control{
     border: none;
+    border-bottom: 1px solid transparent;
     &:focus{
       box-shadow: none;
       border-bottom: 1px solid #eee;
@@ -153,6 +154,24 @@ p{
       background: #fff;
       z-index: 30;
       display: none;
+    }
+  }
+}
+.user-menu{
+  position: relative;
+  .user-menu-dropdown{
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    z-index: 70;
+    display: none;
+    min-width: 150px;
+    a{
+      color: $textcolor;
+      border-bottom-color: #dee2e678 !important;
+      &:hover{
+        color: $primaryColor;
+      }
     }
   }
 }
@@ -240,6 +259,11 @@ p{
     position: relative;
     z-index: 50;
   }
+  .enroll-link{
+    &:hover{
+      letter-spacing: 1px;
+    }
+  }
   .chapter-name{
     color: $primaryColor;
   }
@@ -265,7 +289,9 @@ p{
   &.csw-red{
     .course-brief{
       &:after{
-        background: rgba($red,.7);
+        background: $red;
+        opacity: .7;
+        @include transit(.3s);
       }
     }
     .c-tag .badge{
@@ -275,7 +301,9 @@ p{
   &.csw-brown{
     .course-brief{
       &:after{
-        background: rgba($brown,.7);
+        background: $brown;
+        opacity: .7;
+        @include transit(.3s);
       }
     }
     .c-tag .badge{
@@ -285,7 +313,9 @@ p{
   &.csw-purple{
     .course-brief{
       &:after{
-        background: rgba($purple,.7);
+        background: $purple;
+        opacity: .7;
+        @include transit(.3s);
       }
     }
     .c-tag .badge{
@@ -295,11 +325,20 @@ p{
   &.csw-green{
     .course-brief{
       &:after{
-        background: rgba($green,.7);
+        background: $green;
+        opacity: .7;
+        @include transit(.3s);
       }
     }
     .c-tag .badge{
       color: $green;
+    }
+  }
+  &:hover{
+    .course-brief{
+      &:after{
+        opacity: .9;
+      }
     }
   }
 }
@@ -353,10 +392,21 @@ p{
     padding: 5px 0;
     color: $navyblue;
     font-size: .9rem;
+    &:hover{
+      color: $primaryColor;
+    }
   }
   .resource-div{
     .lni{
       font-size: 1.4rem;
+      @include transit(.3s);
+    }
+    &:hover{
+      a{
+        .lni{
+            color: $primaryColor;
+        }
+      }
     }
   }
   .table{
@@ -448,6 +498,7 @@ p{
 }
 .accordion-wrapper{
   .acc-title{
+    cursor: pointer;
     border-bottom: 1px solid rgba(#000,.1);
     @extend .bg-lightblue;
     padding: 1rem;
@@ -534,5 +585,74 @@ p{
     }
   }
 }
+
+/*********modal************/ 
+.modal {
+  position: fixed;
+  z-index: 10000; /* 1 */
+  top: 0;
+  left: 0;
+  display:none;
+  width: 100%;
+  height: 100%;
+  .modal-overlay {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s linear 0.3s, opacity 0.3s;
+  }
+  .modal-wrapper {
+      position: absolute;
+      z-index: 9999;
+      top: 3em;
+      left: 0;
+      right: 0;
+      max-width: 32em;
+      width: 90%;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 0 1.5em rgba(0, 0, 0, 0.35);
+  }
+  .modal-transition {
+      transition: all 0.3s 0.12s;
+      transform: translateY(-10%);
+      opacity: 0;
+  }
+  .modal-header {
+      position: relative;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid #e8e8e8;
+  }
+  .modal-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1em;
+      color: #aaa;
+      background: none;
+      border: 0;
+      &:hover {
+          color: #777;
+      }
+  }
+  &.is-visible {
+      .modal-overlay {
+          opacity: 1;
+          visibility: visible;
+          transition-delay: 0s;
+      }
+      .modal-transition {
+          transform: translateY(0);
+          opacity: 1;
+      }
+  }
+}   
 
 

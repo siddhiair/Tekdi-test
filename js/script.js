@@ -5,6 +5,9 @@ jQuery(document).ready(function($){
 			$(".search-bar").fadeToggle();
 		});
 	}
+	$(".user-menu-btn").click(function(){
+		$(".user-menu-dropdown").fadeToggle();
+	});
 	$(".acc-title").click(function(){
 		$(".acc-title").not(this).removeClass("active");
 		$(".acc-body").not($(this).next()).slideUp();
@@ -83,4 +86,9 @@ jQuery(document).ready(function($){
 		]
 	});
 	
+	/* open modal */
+    $('.modal-toggle').on('click', function(e) {
+        e.preventDefault();
+        $('.modal').fadeToggle().toggleClass('is-visible');
+    });
 });
